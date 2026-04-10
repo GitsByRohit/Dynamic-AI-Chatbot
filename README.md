@@ -225,6 +225,7 @@ When a user sends a message:
    - Intent detection
    - Entity extraction
    - Sentiment analysis
+
 4️⃣ If intent matches predefined rules → return rule-based response  
 5️⃣ If intent is **Fallback** → generate response using **Llama3 LLM**  
 6️⃣ Chat is stored in database with conversation ID  
@@ -266,7 +267,7 @@ python -m spacy download en_core_web_sm
 ## 5️⃣ Install Ollama
 Download from:
 ```
-https://ollama.com⁠�
+https://ollama.com⁠
 ```
 Then pull the Llama3 model:
 ```
