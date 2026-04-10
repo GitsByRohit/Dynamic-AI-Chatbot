@@ -208,9 +208,8 @@ dynamic-ai-chatbot/
 │
 ├── requirements.txt            # Python dependencies
 │
-├── README.md                   # Project documentation
-│
-└── screenshots/                # Project screenshots
+└── README.md                   # Project documentation
+
 
 ```
 
@@ -244,8 +243,9 @@ cd dynamic-ai-chatbot
 ```
 
 ## 2️⃣ Create virtual environment
-
+```
 python -m venv venv
+```
 Activate it:
 Windows
 ```
