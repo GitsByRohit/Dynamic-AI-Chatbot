@@ -1,0 +1,38 @@
+# Backend Framework
+fastapi
+uvicorn
+pydantic
+starlette
+
+# Authentication & Security
+python-jose
+passlib
+bcrypt
+python-multipart
+
+# Environment Variables
+python-dotenv
+
+# NLP Processing
+spacy
+nltk
+textblob
+
+# Machine Learning
+scikit-learn
+numpy
+pandas
+
+# LLM Integration (Ollama)
+requests
+
+# Analytics & Visualization
+matplotlib
+seaborn
+
+# Utilities
+tqdm
+joblib
+
+# Testing
+pytest
