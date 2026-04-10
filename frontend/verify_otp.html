@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Chatbot - Verify OTP</title>
+
+<link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+<body>
+
+<div class="auth-layout">
+
+<div class="auth-left">
+<h1>Verify Your Account</h1>
+<p>Enter the OTP sent to your email.</p>
+</div>
+
+<div class="auth-right">
+
+<div class="form-box">
+
+<h2>Verify OTP</h2>
+
+<form id="otpForm">
+
+<div class="field-wrap">
+<input type="text" id="otp" placeholder="Enter OTP" required>
+</div>
+
+<div class="field-wrap">
+<input type="password" id="password" placeholder="Create Password" required>
+</div>
+
+<div class="field-wrap">
+<input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+</div>
+
+<button class="primary-btn" type="submit">Verify & Create Account</button>
+
+</form>
+
+<p class="auth-link">
+<a href="index.html">Back to Login</a>
+</p>
+
+<div id="errorMessage" class="error"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script>
+
+const otpForm=document.getElementById("otpForm");
+
+otpForm.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const otp=document.getElementById("otp").value;
+const password=document.getElementById("password").value;
+const confirmPassword=document.getElementById("confirmPassword").value;
+
+if(password!==confirmPassword){
+document.getElementById("errorMessage").innerText="Passwords do not match";
+return;
+}
+
+const username=localStorage.getItem("signup_username");
+const email=localStorage.getItem("signup_email");
+const mobile=localStorage.getItem("signup_mobile");
+
+try{
+
+await verifyOTP(username,email,mobile,otp,password);
+
+alert("Account created successfully!");
+
+localStorage.clear();
+
+window.location.href="index.html";
+
+}catch(err){
+
+document.getElementById("errorMessage").innerText=err.message;
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

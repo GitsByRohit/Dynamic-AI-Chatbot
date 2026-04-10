@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Chatbot - Signup</title>
+
+<link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+<body>
+
+<div class="auth-layout">
+
+<div class="auth-left">
+<h1>Dynamic AI Chatbot</h1>
+<p>Create your account to start chatting with AI.</p>
+</div>
+
+<div class="auth-right">
+
+<div class="form-box">
+
+<h2>Create Account</h2>
+
+<form id="signupForm">
+
+<div class="field-wrap">
+<input type="text" id="username" placeholder="Username" required>
+</div>
+
+<div class="field-wrap">
+<input type="email" id="email" placeholder="Email address" required>
+</div>
+
+<div class="field-wrap">
+<input type="text" id="mobile" placeholder="Mobile number" required>
+</div>
+
+<button class="primary-btn" type="submit">Signup</button>
+
+</form>
+
+<p class="auth-link">
+Already have an account?
+<a href="index.html">Login</a>
+</p>
+
+<div id="errorMessage" class="error"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script>
+const signupForm = document.getElementById("signupForm");
+
+signupForm.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const username = document.getElementById("username").value;
+const email = document.getElementById("email").value;
+const mobile = document.getElementById("mobile").value;
+
+try{
+
+await signup(username,email,mobile);
+
+localStorage.setItem("signup_username", username);
+localStorage.setItem("signup_email", email);
+localStorage.setItem("signup_mobile", mobile);
+
+window.location.href="verify_otp.html";
+
+}catch(err){
+
+document.getElementById("errorMessage").innerText = err.message;
+
+}
+
+});
+</script>
+
+</body>
+</html>

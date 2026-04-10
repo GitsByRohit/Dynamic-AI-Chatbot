@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chatbot – Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+<div class="auth-layout">
+
+  <!-- ════ LEFT PANEL ════ -->
+  <div class="auth-left">
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="left-content">
+
+      <div class="brand">
+        <div class="brand-icon">✦</div>
+        <div class="brand-name"></div>
+      </div>
+
+      <h1 class="auth-headline">
+        <span class="grad">Dynamic AI</span><br>Chatbot
+      </h1>
+
+      <p class="auth-sub">
+        Your intelligent conversation partner.<br>
+        Powered by local LLMs — private by design.
+      </p>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feat-icon">⚡</div>
+          <div class="feat-text"><strong>Streaming responses</strong> — real-time answers</div>
+        </div>
+        <div class="feature-item">
+          <div class="feat-icon">🔒</div>
+          <div class="feat-text"><strong>JWT secured</strong> — your data stays yours</div>
+        </div>
+        <div class="feature-item">
+          <div class="feat-icon">📊</div>
+          <div class="feat-text"><strong>Analytics dashboard</strong> — track your usage</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="auth-float-card">
+      <div class="ft">SYSTEM STATUS</div>
+      <div class="fs">Ollama · FastAPI · SQLite</div>
+      <div class="status-row">
+        <div class="status-dot"></div>
+        <div class="status-label">All systems operational</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════ RIGHT PANEL ════ -->
+  <div class="auth-right">
+    <div class="form-box">
+
+      <h2>Welcome back 👋</h2>
+      <p class="sub">Sign in to continue your conversations</p>
+
+      <div id="errorMessage" class="error">
+        ⚠️ Invalid email or password.
+      </div>
+
+      <form id="loginForm" autocomplete="on" novalidate>
+
+        <div class="field-wrap">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="field-wrap">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <div class="extras-row">
+          <label class="remember-label">
+            <input type="checkbox" id="rememberMe">
+            <div class="custom-check">✓</div>
+            Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button class="primary-btn" type="submit">Sign In</button>
+
+      </form>
+
+      <!-- <div class="divider">
+        <div class="divider-line"></div>
+        <span>or continue with</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <button type="button" class="social-btn">
+        <span class="social-icon">G</span>
+        Continue with Google
+      </button> -->
+
+      <p class="auth-link">
+        Don't have an account? <a href="signup.html">Sign Up</a>
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>

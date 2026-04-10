@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Chatbot</title>
+
+<link rel="stylesheet" href="css/app.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload="protectPage()">
+
+<div id="app">
+
+<!-- NAVBAR -->
+
+<nav id="tabbar">
+
+<button id="chatTab" class="active">Chat</button>
+<button id="dashboardTab">Dashboard</button>
+
+</nav>
+
+
+<div id="pages">
+
+<!-- CHAT PAGE -->
+
+<div id="page-chat" class="page active">
+
+<!-- SIDEBAR -->
+
+<div class="chat-sidebar">
+
+<button id="newChatBtn" class="new-chat-btn">+ New Chat</button>
+
+<div class="side-label">Recent</div>
+
+<div id="chatHistory"></div>
+
+<div class="session-info">
+
+User:<br>
+<span id="profileEmail"></span>
+
+</div>
+
+</div>
+
+
+<!-- MAIN CHAT -->
+
+<div class="chat-main">
+
+<div class="chat-topbar">
+
+<div class="chat-topbar-left">
+
+<div class="online-dot"></div>
+
+<div>
+<div class="chat-topbar-title">AI Assistant</div>
+<div class="chat-topbar-sub">Online</div>
+</div>
+
+</div>
+
+<button onclick="logoutUser()" class="icon-btn">Logout</button>
+
+</div>
+
+
+<div class="messages-area" id="chatWindow"></div>
+
+
+<div class="chat-input-area">
+
+<div class="chat-input-box">
+
+<input
+type="text"
+id="chatInput"
+placeholder="Type your message..."
+>
+
+<button id="sendBtn" class="send-btn">➤</button>
+
+</div>
+
+<div class="chat-input-hint">
+Press Enter to send
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- DASHBOARD PAGE -->
+
+<div id="page-dashboard" class="page">
+
+<div class="dashboard-inner">
+
+<div class="dash-header">
+
+<div>
+<h1>Analytics <span>Dashboard</span></h1>
+<p>AI chatbot performance insights</p>
+</div>
+
+<button class="refresh-btn" onclick="loadDashboard()">Refresh</button>
+
+</div>
+
+
+<div class="stat-grid">
+
+<div class="stat-card">
+<div class="top-bar"></div>
+<div class="s-val" id="totalChats">0</div>
+<div class="s-label">Total Chats</div>
+</div>
+
+<div class="stat-card">
+<div class="top-bar"></div>
+<div class="s-val" id="activeUsers">0</div>
+<div class="s-label">Active Users</div>
+</div>
+
+<div class="stat-card">
+<div class="top-bar"></div>
+<div class="s-val" id="fallbackRate">0%</div>
+<div class="s-label">Fallback Rate</div>
+</div>
+
+<div class="stat-card">
+<div class="top-bar"></div>
+<div class="s-val">AI</div>
+<div class="s-label">Model</div>
+</div>
+
+</div>
+
+
+<div class="chart-grid">
+
+<div class="chart-card span-rows">
+
+<div class="chart-card-header">
+<h3>Chat Trend</h3>
+</div>
+
+<canvas id="chatTrendChart"></canvas>
+
+</div>
+
+
+<div class="chart-card">
+
+<div class="chart-card-header">
+<h3>Intent Distribution</h3>
+</div>
+
+<canvas id="intentChart"></canvas>
+
+</div>
+
+
+<div class="chart-card">
+
+<div class="chart-card-header">
+<h3>Sentiment Distribution</h3>
+</div>
+
+<canvas id="sentimentChart"></canvas>
+
+</div>
+
+
+<div class="chart-card">
+
+<div class="chart-card-header">
+<h3>Feedback</h3>
+</div>
+
+<canvas id="feedbackChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/dashboard.js"></script>
+
+
+<script>
+
+// Tab switching
+
+const chatTab = document.getElementById("chatTab");
+const dashboardTab = document.getElementById("dashboardTab");
+
+const chatPage = document.getElementById("page-chat");
+const dashboardPage = document.getElementById("page-dashboard");
+
+chatTab.onclick = () => {
+
+chatTab.classList.add("active");
+dashboardTab.classList.remove("active");
+
+chatPage.classList.add("active");
+dashboardPage.classList.remove("active");
+
+};
+
+dashboardTab.onclick = () => {
+
+dashboardTab.classList.add("active");
+chatTab.classList.remove("active");
+
+chatPage.classList.remove("active");
+dashboardPage.classList.add("active");
+
+loadDashboard();
+
+};
+
+</script>
+
+</body>
+</html>
